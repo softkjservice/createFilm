@@ -53,13 +53,13 @@
         </div>
     </div>
 
-    <script>
+<!--    <script>
         document.getElementById("video1").style.visibility = "hidden";
         document.getElementById("video2").style.visibility = "hidden";
         function myFunction() {
             document.getElementById("demo").innerHTML = "Hello World";
         }
-        function myFunction1() {
+        /*function myFunction1() {
             document.getElementById("demo").innerHTML = '<video id="video1" width="400" controls autoplay >  <source src="{{ asset('storage/films/penetration_01.mp4') }}" type="video/mp4"> </video>';
         }
         function myFunction2() {
@@ -82,7 +82,7 @@
         }
         function myFunction8() {
             document.getElementById("demo").innerHTML = '<video id="video4" width="400" controls autoplay >  <source src="{{ asset('storage/films/penetration_08.mp4') }}" type="video/mp4"> </video>';
-        }
+        }*/
 
 
         var removeMedia = function () {
@@ -94,6 +94,12 @@
                 $media.remove().length = 0;
             });
         };
-    </script>
+    </script>-->
 @endsection
 
+ @section('javascript')
+     const filmsUrl = "{{ url('storage/films') }}/"
+ @endsection
+ @section('js-files')
+     <script src="{{ asset('js/order.js') }}"></script>
+ @endsection
