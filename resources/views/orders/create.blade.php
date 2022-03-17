@@ -17,21 +17,21 @@
         <div class="form-group">
             <label for="penetration">Typ przenikania kadrów:</label><br>
             <label for="penetration 01">01</label>
-            <input onclick="myFunction1()" type="radio" name="action" value="01">
+            <input onclick="penetration_1()" type="radio" name="action" value="01">
             <label for="penetration 02"> &nbsp&nbsp02</label>
-            <input onclick="myFunction2()" type="radio" name="action" value="02">
+            <input onclick="penetration_2()" type="radio" name="action" value="02">
             <label for="penetration 03">&nbsp&nbsp 03</label>
-            <input onclick="myFunction3()" type="radio" name="action" value="03">
+            <input onclick="penetration_3()" type="radio" name="action" value="03">
             <label for="penetration 04"> &nbsp&nbsp04</label>
-            <input onclick="myFunction4()" type="radio" name="action" value="04">
+            <input onclick="penetration_4()" type="radio" name="action" value="04">
             <label for="penetration 05"> &nbsp&nbsp05</label>
-            <input onclick="myFunction5()" type="radio" name="action" value="01">
+            <input onclick="penetration_5()" type="radio" name="action" value="01">
             <label for="penetration 06"> &nbsp&nbsp06</label>
-            <input onclick="myFunction6()" type="radio" name="action" value="02">
+            <input onclick="penetration_6()" type="radio" name="action" value="02">
             <label for="penetration 07">&nbsp&nbsp 07</label>
-            <input onclick="myFunction7()" type="radio" name="action" value="03">
+            <input onclick="penetration_7()" type="radio" name="action" value="03">
             <label for="penetration 08"> &nbsp&nbsp08</label>
-            <input onclick="myFunction8()" type="radio" name="action" value="04">
+            <input onclick="penetration_8()" type="radio" name="action" value="04">
 
 
         </div>
