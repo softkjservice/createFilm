@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="title">Subtytuł:</label>
-            <input type="text" class="form-control" id="title" placeholder="Wpisz dodatkowy tekst" name="title" >
+            <input type="text" class="form-control" id="subtitle" placeholder="Wpisz dodatkowy tekst" name="title" >
         </div>
 
         <div class="form-group">
@@ -38,8 +38,8 @@
             <input onclick="titleAnimation_8()" type="radio" name="action" value="04">
         </div>
         <div id="titleAnimation"></div>
-        <div class="form-group">
-            <label for="penetration">Typ przenikania kadrów:</label><br>
+        <div class="form-group"><br>
+            <label for="penetration">Wybierz typ przenikania kadrów:</label><br>
             <label for="penetration 01">01</label>
             <input onclick="penetration_1()" type="radio" name="action" value="01">
             <label for="penetration 02"> &nbsp&nbsp02</label>
@@ -56,9 +56,34 @@
             <input onclick="penetration_7()" type="radio" name="action" value="03">
             <label for="penetration 08"> &nbsp&nbsp08</label>
             <input onclick="penetration_8()" type="radio" name="action" value="04">
-
-
         </div>
+        <div id="penetration"></div>
+<br>
+        <div class="form-group">
+            <label for="title">Wpisz tekst na zakończenie filmu:</label>
+            <input type="text" class="form-control" id="end" placeholder="The end" name="title" >
+        </div>
+
+        <div class="form-group"><br>
+            <label for="endAnimation">Wybierz animację zakończenia filmu:</label><br>
+            <label for="endAnimation 01">01</label>
+            <input onclick="endAnimation_1()" type="radio" name="action" value="01">
+            <label for="endAnimation 02"> &nbsp&nbsp02</label>
+            <input onclick="endAnimation_2()" type="radio" name="action" value="02">
+            <label for="endAnimation 03">&nbsp&nbsp 03</label>
+            <input onclick="endAnimation_3()" type="radio" name="action" value="03">
+            <label for="endAnimation 04"> &nbsp&nbsp04</label>
+            <input onclick="endAnimation_4()" type="radio" name="action" value="04">
+            <label for="endAnimation 05"> &nbsp&nbsp05</label>
+            <input onclick="endAnimation_5()" type="radio" name="action" value="01">
+            <label for="endAnimation 06"> &nbsp&nbsp06</label>
+            <input onclick="endAnimation_6()" type="radio" name="action" value="02">
+            <label for="endAnimation 07">&nbsp&nbsp 07</label>
+            <input onclick="endAnimation_7()" type="radio" name="action" value="03">
+            <label for="endAnimation 08"> &nbsp&nbsp08</label>
+            <input onclick="endAnimation_8()" type="radio" name="action" value="04">
+        </div>
+        <div id="endAnimation"></div>
 
         <div id="demo"></div>
         <div class="form-group">
