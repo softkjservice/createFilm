@@ -13,7 +13,31 @@
             <label for="title">Tytuł filmu:</label>
             <input type="text" class="form-control" id="title" placeholder="Wpisz tytuł filmu" name="title" >
         </div>
+        <div class="form-group">
+            <label for="title">Subtytuł:</label>
+            <input type="text" class="form-control" id="title" placeholder="Wpisz dodatkowy tekst" name="title" >
+        </div>
 
+        <div class="form-group">
+            <label for="penetration">Wybierz animację dla tytułu:</label><br>
+            <label for="titleAnimation 01">01</label>
+            <input onclick="titleAnimation_1()" type="radio" name="action" value="01">
+            <label for="titleAnimation 02"> &nbsp&nbsp02</label>
+            <input onclick="titleAnimation_2()" type="radio" name="action" value="02">
+            <label for="titleAnimation 03">&nbsp&nbsp 03</label>
+            <input onclick="titleAnimation_3()" type="radio" name="action" value="03">
+            <label for="titleAnimation 04"> &nbsp&nbsp04</label>
+            <input onclick="titleAnimation_4()" type="radio" name="action" value="04">
+            <label for="titleAnimation 05"> &nbsp&nbsp05</label>
+            <input onclick="titleAnimation_5()" type="radio" name="action" value="01">
+            <label for="titleAnimation 06"> &nbsp&nbsp06</label>
+            <input onclick="titleAnimation_6()" type="radio" name="action" value="02">
+            <label for="titleAnimation 07">&nbsp&nbsp 07</label>
+            <input onclick="titleAnimation_7()" type="radio" name="action" value="03">
+            <label for="titleAnimation 08"> &nbsp&nbsp08</label>
+            <input onclick="titleAnimation_8()" type="radio" name="action" value="04">
+        </div>
+        <div id="titleAnimation"></div>
         <div class="form-group">
             <label for="penetration">Typ przenikania kadrów:</label><br>
             <label for="penetration 01">01</label>
