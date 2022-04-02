@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title', 255);
+            $table->string('sub_title', 255);
             $table->string('end_txt', 255);
             $table->integer('title_type');
             $table->integer('end_txt_type');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 
+use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -42,7 +43,8 @@ class OrderController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-         dd($request);
+        //$order=new Order($request);
+        // dd($request);
         return redirect(route('orders.index'))->with('status', 'Udało się');
     }
 
