@@ -91,10 +91,10 @@
             <input type="number" class="form-control" id="liczba_b" placeholder="Enter number 2" name="number_2" step="0.01">
         </div>-->
         <br>
-<!--        <div class="form-group">
+        <div class="form-group">
             <label for="file">Filmik</label>
             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
-        </div>-->
+        </div>
         <div class="checkbox">
             <label><input type="checkbox" name="remember"> Remember me</label>
         </div>

@@ -17,6 +17,7 @@ class  Order extends Model
      */
     protected $fillable = [
         'title',
+        'sub_title',
         'end_txt',
         'title_type',
         'end_txt_type',
