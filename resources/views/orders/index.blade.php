@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <p>Cześć {{ $user }}</p>
-                <h3>  <p>Pliki do montażu</p></h3>
+                <h3>  <p>Zamówienia</p></h3>
             </div>
         </div>
         <div class="col-6">
