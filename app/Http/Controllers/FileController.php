@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -26,7 +27,7 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        return view('files.create', ['user'=>'Krzysztof Jaworski']);
     }
 
     /**
@@ -37,7 +38,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect(route('files.index'))->with('status', 'Udało się');
     }
 
     /**
