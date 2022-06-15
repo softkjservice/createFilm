@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOrderRequest extends FormRequest
+class UpsertProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,6 +29,7 @@ class StoreOrderRequest extends FormRequest
             'title_type' => 'required|max:10',
             'end_txt_type' => 'required|max:10',
             'penetration_type' => 'required|max:10',
+            'end_txt' => 'required|max:50',
         ];
     }
 }

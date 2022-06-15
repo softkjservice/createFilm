@@ -10,8 +10,8 @@
         </div>
         <div class="col-6">
 
-            <a class="float-right" href="{{ route('files.index') }}">
-                <button type="button" class="btn btn-primary"><i class="fas fa-plus">Dodaj plik</i></button>
+            <a class="float-right" href="{{ route('orders.create') }}">
+                <button type="button" class="btn btn-primary"><i class="fas fa-plus">Utwórz zamówienie</i></button>
             </a>
         </div>
 

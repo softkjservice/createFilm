@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 
 
+//use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpsertProductRequest;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -38,14 +42,19 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpsertProductRequest  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(UpsertProductRequest $request): RedirectResponse
     {
-        //$order=new Order($request);
-        // dd($request);
-        return redirect(route('orders.index'))->with('status', 'Udało się');
+        $order=new Order($request->validated());
+        //dd($request);
+        //dd($order);
+        $order->user_id=Auth::id();
+        //dd($order);
+        $order->save();
+        //dd($order->id);
+        return redirect(route('files.index'))->with('status', 'Udało się');
     }
 
     /**

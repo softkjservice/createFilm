@@ -11,78 +11,101 @@
         @csrf
         <div class="form-group">
             <label for="title">Tytuł filmu:</label>
-            <input type="text" class="form-control" id="title" placeholder="Wpisz tytuł filmu" name="filmTitle" >
+            <input type="text" class="form-control" id="title" placeholder="Wpisz tytuł filmu" name="title" >
         </div>
+        @error('title')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+
         <div class="form-group">
             <label for="title">Subtytuł:</label>
-            <input type="text" class="form-control" id="subtitle" placeholder="Wpisz dodatkowy tekst" name="filmSubtitle" >
+            <input type="text" class="form-control" id="sub_title" placeholder="Wpisz dodatkowy tekst" name="sub_title" >
         </div>
-
+        @error('sub_title')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <div class="form-group">
+            <label for="title">Wpisz tekst na zakończenie filmu:</label>
+            <input type="text" class="form-control" id="end_txt"  name="end_txt" value="The end" >
+        </div>
+        @error('end_txt')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+<br>
         <div class="form-group">
             <label for="penetration">Wybierz animację dla tytułu:</label><br>
             <label for="titleAnimation 01">01</label>
-            <input onclick="titleAnimation_1()" type="radio" name="titleAnimation" value="01">
+            <input onclick="titleAnimation_1()" type="radio" name="title_type" value="01">
             <label for="titleAnimation 02"> &nbsp&nbsp02</label>
-            <input onclick="titleAnimation_2()" type="radio" name="titleAnimation" value="02">
+            <input onclick="titleAnimation_2()" type="radio" name="title_type" value="02">
             <label for="titleAnimation 03">&nbsp&nbsp 03</label>
-            <input onclick="titleAnimation_3()" type="radio" name="titleAnimation" value="03">
+            <input onclick="titleAnimation_3()" type="radio" name="title_type" value="03">
             <label for="titleAnimation 04"> &nbsp&nbsp04</label>
-            <input onclick="titleAnimation_4()" type="radio" name="titleAnimation" value="04">
+            <input onclick="titleAnimation_4()" type="radio" name="title_type" value="04">
             <label for="titleAnimation 05"> &nbsp&nbsp05</label>
-            <input onclick="titleAnimation_5()" type="radio" name="titleAnimation" value="05">
+            <input onclick="titleAnimation_5()" type="radio" name="title_type" value="05">
             <label for="titleAnimation 06"> &nbsp&nbsp06</label>
-            <input onclick="titleAnimation_6()" type="radio" name="titleAnimation" value="06">
+            <input onclick="titleAnimation_6()" type="radio" name="title_type" value="06">
             <label for="titleAnimation 07">&nbsp&nbsp 07</label>
-            <input onclick="titleAnimation_7()" type="radio" name="titleAnimation" value="07">
+            <input onclick="titleAnimation_7()" type="radio" name="title_type" value="07">
             <label for="titleAnimation 08"> &nbsp&nbsp08</label>
-            <input onclick="titleAnimation_8()" type="radio" name="titleAnimation" value="08">
+            <input onclick="titleAnimation_8()" type="radio" name="title_type" value="08">
         </div>
+        @error('title_type')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         <div id="titleAnimation"></div>
         <div class="form-group"><br>
             <label for="penetration">Wybierz typ przenikania kadrów:</label><br>
             <label for="penetration 01">01</label>
-            <input onclick="penetration_1()" type="radio" name="penetration" value="01">
+            <input onclick="penetration_1()" type="radio" name="penetration_type" value="01">
             <label for="penetration 02"> &nbsp&nbsp02</label>
-            <input onclick="penetration_2()" type="radio" name="penetration" value="02">
+            <input onclick="penetration_2()" type="radio" name="penetration_type" value="02">
             <label for="penetration 03">&nbsp&nbsp 03</label>
-            <input onclick="penetration_3()" type="radio" name="penetration" value="03">
+            <input onclick="penetration_3()" type="radio" name="penetration_type" value="03">
             <label for="penetration 04"> &nbsp&nbsp04</label>
-            <input onclick="penetration_4()" type="radio" name="penetration" value="04">
+            <input onclick="penetration_4()" type="radio" name="penetration_type" value="04">
             <label for="penetration 05"> &nbsp&nbsp05</label>
-            <input onclick="penetration_5()" type="radio" name="penetration" value="05">
+            <input onclick="penetration_5()" type="radio" name="penetration_type" value="05">
             <label for="penetration 06"> &nbsp&nbsp06</label>
-            <input onclick="penetration_6()" type="radio" name="penetration" value="06">
+            <input onclick="penetration_6()" type="radio" name="penetration_type" value="06">
             <label for="penetration 07">&nbsp&nbsp 07</label>
-            <input onclick="penetration_7()" type="radio" name="penetration" value="07">
+            <input onclick="penetration_7()" type="radio" name="penetration_type" value="07">
             <label for="penetration 08"> &nbsp&nbsp08</label>
-            <input onclick="penetration_8()" type="radio" name="penetration" value="08">
+            <input onclick="penetration_8()" type="radio" name="penetration_type" value="08">
         </div>
+        @error('penetration_type')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         <div id="penetration"></div>
-<br>
-        <div class="form-group">
-            <label for="title">Wpisz tekst na zakończenie filmu:</label>
-            <input type="text" class="form-control" id="end"  name="endTitle" value="The end" >
-        </div>
+
 
         <div class="form-group"><br>
             <label for="endAnimation">Wybierz animację zakończenia filmu:</label><br>
             <label for="endAnimation 01">01</label>
-            <input onclick="endAnimation_1()" type="radio" name="endAnimation" value="01">
+            <input onclick="endAnimation_1()" type="radio" name="end_txt_type" value="01">
             <label for="endAnimation 02"> &nbsp&nbsp02</label>
-            <input onclick="endAnimation_2()" type="radio" name="endAnimation" value="02">
+            <input onclick="endAnimation_2()" type="radio" name="end_txt_type" value="02">
             <label for="endAnimation 03">&nbsp&nbsp 03</label>
-            <input onclick="endAnimation_3()" type="radio" name="endAnimation" value="03">
+            <input onclick="endAnimation_3()" type="radio" name="end_txt_type" value="03">
             <label for="endAnimation 04"> &nbsp&nbsp04</label>
-            <input onclick="endAnimation_4()" type="radio" name="endAnimation" value="04">
+            <input onclick="endAnimation_4()" type="radio" name="end_txt_type" value="04">
             <label for="endAnimation 05"> &nbsp&nbsp05</label>
-            <input onclick="endAnimation_5()" type="radio" name="endAnimation" value="05">
+            <input onclick="endAnimation_5()" type="radio" name="end_txt_type" value="05">
             <label for="endAnimation 06"> &nbsp&nbsp06</label>
-            <input onclick="endAnimation_6()" type="radio" name="endAnimation" value="06">
+            <input onclick="endAnimation_6()" type="radio" name="end_txt_type" value="06">
             <label for="endAnimation 07">&nbsp&nbsp 07</label>
-            <input onclick="endAnimation_7()" type="radio" name="endAnimation" value="07">
+            <input onclick="endAnimation_7()" type="radio" name="end_txt_type" value="07">
             <label for="endAnimation 08"> &nbsp&nbsp08</label>
-            <input onclick="endAnimation_8()" type="radio" name="endAnimation" value="08">
+            <input onclick="endAnimation_8()" type="radio" name="end_txt_type" value="08">
         </div>
+        @error('end_txt_type')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
         <div id="endAnimation"></div>
 
 <!--        <div id="demo"></div>
@@ -95,9 +118,19 @@
             <label for="file">Filmik</label>
             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
         </div>-->
-        <div class="checkbox">
+<!--        <div class="checkbox">
             <label><input type="checkbox" name="remember"> Remember me</label>
-        </div>
+        </div>-->
+<!--        @if($errors->any())
+            <div>
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif-->
+
         <button type="submit" class="btn btn-success" name="dodaj">Submit</button>
     </form>
         </div>
