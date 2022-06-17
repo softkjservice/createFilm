@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('orders', OrderController::class);
-Route::resource('files', FileController::class);
+//Route::resource('files', FileController::class);
 Route::resource('pictures', PictureControllers::class);
 
 Route::get('/', function () {
