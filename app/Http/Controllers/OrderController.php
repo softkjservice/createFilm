@@ -53,6 +53,8 @@ class OrderController extends Controller
         $order->user_id=Auth::id();
         //dd($order);
         $order->save();
+        session(['order_id' => $order->id]);
+        dd(session('order_id'));
         //dd($order->id);
         return redirect(route('files.index'))->with('status', 'Udało się');
     }

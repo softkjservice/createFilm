@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('pictures', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
@@ -31,12 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        $table->id();
-        $table->unsignedBigInteger('order_id')->nullable();
-        $table->foreign('order_id')->references('id')->on('orders');
-        $table->string('oryginal_name', 255);
-        $table->string('image_path', 255);
-        $table->integer('image_size');
-        $table->timestamps();
+        Schema::dropIfExists('pictures');
     }
 };
