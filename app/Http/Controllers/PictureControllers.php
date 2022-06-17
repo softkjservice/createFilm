@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class FileController extends Controller
+class PictureControllers extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,6 +37,7 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
+
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 
