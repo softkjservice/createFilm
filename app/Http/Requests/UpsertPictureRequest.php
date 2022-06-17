@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpsertFileRequest extends FormRequest
+class UpsertPictureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class UpsertFileRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable|image|mimes:jpg,png,gif,GIF',
+           // 'image' => 'nullable|image|mimes:jpg,png,gif,GIF',
+            'image' => 'nullable',
         ];
     }
 }

@@ -15,7 +15,7 @@
             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
         </div>
 
-        <button type="submit" class="btn btn-success" name="dodaj">Submit</button>
+        <button type="submit" class="btn btn-success" name="dodaj">Submit *</button>
     </form>
         </div>
     </div>

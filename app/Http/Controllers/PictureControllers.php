@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpsertPictureRequest;
+use App\Models\Picture;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -14,7 +16,9 @@ class PictureControllers extends Controller
      */
     public function index() : view
     {
+        $pictures=Picture::all();
         return view("pictures.index", [
+            'pictures' => $pictures,
             'user' => 'K. Jaworski'
         ]);
     }
@@ -35,9 +39,21 @@ class PictureControllers extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpsertPictureRequest $request)
     {
-
+        //dd($request);
+        $picture = new Picture($request->validated());
+        if ($request->hasFile('image')) {
+            $picture->image_path = $request->file('image')->store('pic_01');
+            //$cos = $request->file('image');
+        }
+        //dd($cos);
+        $picture->order_id=session('order_id');
+        $picture->oryginal_name=$request->file('image')->getClientOriginalName();
+        //dd(session('order_id'));
+        $picture->image_size=$request->file('image')->getSize();
+        $picture->save();
+//dd($picture->id);
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 

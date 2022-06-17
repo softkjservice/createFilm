@@ -19,6 +19,14 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($pictures as $picture)
+                    <tr>
+
+                        <td>{{ $picture->oryginal_name }}</td>
+                        <td>{{ $picture->image_size }}</td>
+
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
