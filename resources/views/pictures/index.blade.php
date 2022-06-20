@@ -15,7 +15,7 @@
                 <tr>
                     <th scope="col">{{ __('text.file.fields.oryginal_name') }}</th>
                     <th scope="col">{{ __('text.file.fields.image_size') }}</th>
-                    <th scope="col">{{ __('text.file.fields.index') }}</th>
+<!--                    <th scope="col">{{ __('text.file.fields.index') }}</th>-->
                 </tr>
                 </thead>
                 <tbody>
@@ -25,6 +25,34 @@
                         <td>{{ $picture->oryginal_name }}</td>
                         <td>{{ $picture->image_size }}</td>
 
+                        <td>
+                            <form method="POST" class="fm-inline"
+                                  action="{{ route('pictures.destroy', ['picture' => $picture->id]) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" value="Delete!" class="btn btn-danger"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" class="fm-inline"
+                                  action="{{ route('pictures.destroy', ['picture' => $picture->id]) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" value="W górę" class="btn btn-warning"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" class="fm-inline"
+                                  action="{{ route('pictures.destroy', ['picture' => $picture->id]) }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" value="W dół" class="btn btn-warning"/>
+                            </form>
+                        </td>
+                        <td>{{ $picture->index }}</td>
                     </tr>
                 @endforeach
                 </tbody>

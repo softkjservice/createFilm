@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Classis\PictureIndexAdd;
 use App\Http\Requests\UpsertPictureRequest;
+use App\Models\Order;
 use App\Models\Picture;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -16,7 +19,12 @@ class PictureControllers extends Controller
      */
     public function index() : view
     {
-        $pictures=Picture::all();
+       $order=Order::findOrFail(session('order_id'));
+        //dd($order);
+       $pictures=$order->pictures()->orderBy('index')->get();
+
+       //d($pictures);
+       //pictures=Picture::all();
         return view("pictures.index", [
             'pictures' => $pictures,
             'user' => 'K. Jaworski'
@@ -49,6 +57,8 @@ class PictureControllers extends Controller
         }
         //dd($cos);
         $picture->order_id=session('order_id');
+        $indexAdd=new PictureIndexAdd($picture->order_id);
+        $picture->index=$indexAdd->indexAdd();
         $picture->oryginal_name=$request->file('image')->getClientOriginalName();
         //dd(session('order_id'));
         $picture->image_size=$request->file('image')->getSize();
@@ -95,10 +105,22 @@ class PictureControllers extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id): RedirectResponse
     {
-        //
+       // dd($id);
+        $picture = Picture::findOrFail($id);
+
+
+        //$this->authorize($post);
+
+        $picture->delete();
+
+        // BlogPost::destroy($id);
+
+        $request->session()->flash('status', 'Blog post was deleted!');
+
+        return redirect()->route('pictures.index');
     }
 }
