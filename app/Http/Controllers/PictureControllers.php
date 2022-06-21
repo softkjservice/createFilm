@@ -19,7 +19,12 @@ class PictureControllers extends Controller
      */
     public function index() : view
     {
-       $order=Order::findOrFail(session('order_id'));
+       $orderId=session('order_id');
+       if (is_null($orderId)){
+           return view("home");
+       }
+        $order=Order::findOrFail($orderId);
+        //$order=Order::findOrFail(session('order_id'));
         //dd($order);
        $pictures=$order->pictures()->orderBy('index')->get();
 

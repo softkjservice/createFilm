@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in! / Jesteś zalogowany') }}
                 </div>
-                <div><br>Witaj w systemie {{ Auth::user()->name }}<br><br>Komunikat z home.blade.php</div>
+
             </div>
         </div>
     </div>
