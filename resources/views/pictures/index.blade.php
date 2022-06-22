@@ -36,18 +36,18 @@
                         </td>
                         <td>
                             <form method="POST" class="fm-inline"
-                                  action="{{ route('pictures.destroy', ['picture' => $picture->id]) }}">
+                                  action="{{ route('up') }}">
                                 @csrf
-                                @method('DELETE')
+
 
                                 <input type="submit" value="W górę" class="btn btn-warning"/>
                             </form>
                         </td>
                         <td>
                             <form method="POST" class="fm-inline"
-                                  action="{{ route('pictures.destroy', ['picture' => $picture->id]) }}">
+                                  action="{{ route('down') }}">
                                 @csrf
-                                @method('DELETE')
+
 
                                 <input type="submit" value="W dół" class="btn btn-warning"/>
                             </form>

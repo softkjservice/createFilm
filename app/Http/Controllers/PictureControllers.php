@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Picture;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PictureControllers extends Controller
@@ -19,22 +20,16 @@ class PictureControllers extends Controller
      */
     public function index() : view
     {
-       $orderId=session('order_id');
-       if (is_null($orderId)){
-           return view("home");
-       }
+        $orderId=Auth::user()->latestOrder->id;
         $order=Order::findOrFail($orderId);
-        //$order=Order::findOrFail(session('order_id'));
-        //dd($order);
-       $pictures=$order->pictures()->orderBy('index')->get();
-
-       //d($pictures);
-       //pictures=Picture::all();
+        $pictures=$order->pictures()->orderBy('index')->get();
         return view("pictures.index", [
             'pictures' => $pictures,
             'user' => 'K. Jaworski'
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -54,21 +49,17 @@ class PictureControllers extends Controller
      */
     public function store(UpsertPictureRequest $request)
     {
-        //dd($request);
         $picture = new Picture($request->validated());
+        $picture->order_id=Auth::user()->latestOrder->id;
         if ($request->hasFile('image')) {
-            $picture->image_path = $request->file('image')->store('pic_01');
-            //$cos = $request->file('image');
+            $picture->image_path = $request->file('image')->store($picture->order_id);  //dla każdego zamówienia tworzy nowy katalog o nazwie takiej jak numer zamówienia
         }
-        //dd($cos);
-        $picture->order_id=session('order_id');
+
         $indexAdd=new PictureIndexAdd($picture->order_id);
         $picture->index=$indexAdd->indexAdd();
         $picture->oryginal_name=$request->file('image')->getClientOriginalName();
-        //dd(session('order_id'));
         $picture->image_size=$request->file('image')->getSize();
         $picture->save();
-//dd($picture->id);
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 

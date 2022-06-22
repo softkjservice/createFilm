@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PictureActionControllers;
 use App\Http\Controllers\PictureControllers;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\OrderController;
@@ -17,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('orders', OrderController::class);
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::resource('orders', OrderController::class);
 //Route::resource('files', FileController::class);
-Route::resource('pictures', PictureControllers::class);
+    Route::resource('pictures', PictureControllers::class);
+    Route::post('/up', [App\Http\Controllers\PictureActionControllers::class, 'up'])->name('up');
+    Route::post('/down', [App\Http\Controllers\PictureActionControllers::class, 'down'])->name('down');
+});
+
+
 
 Route::get('/', function () {
     return view('welcome');

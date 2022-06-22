@@ -53,11 +53,11 @@ class OrderController extends Controller
         $order->user_id=Auth::id();
         //dd($order);
         $order->save();
-        session(['order_id' => $order->id]);
+        //session(['order_id' => $order->id]);
         //$pom=Auth::user()->orders()->first()->id;
-        $pom=Auth::user()->latestOrder->id;
+        //$pom=Auth::user()->latestOrder->id;
         //$pom=Auth::user()->latestUserOrder()->id;
-        dd($pom);
+        //dd($pom);
         // dd(session('order_id'));
         //dd($order->id);
         return redirect(route('pictures.index'))->with('status', 'Udało się');
