@@ -36,11 +36,11 @@
                         </td>
                         <td>
                             <form method="POST" class="fm-inline"
-                                  action="{{ route('up') }}">
+                                  action="{{ route('up', ['picture' => $picture->id]) }}">
                                 @csrf
 
 
-                                <input type="submit" value="W górę" class="btn btn-warning"/>
+                                <input type="submit" value="Up " class="btn btn-warning"/>
                             </form>
                         </td>
                         <td>
