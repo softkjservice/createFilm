@@ -53,13 +53,7 @@ class OrderController extends Controller
         $order->user_id=Auth::id();
         //dd($order);
         $order->save();
-        //session(['order_id' => $order->id]);
-        //$pom=Auth::user()->orders()->first()->id;
-        //$pom=Auth::user()->latestOrder->id;
-        //$pom=Auth::user()->latestUserOrder()->id;
-        //dd($pom);
-        // dd(session('order_id'));
-        //dd($order->id);
+
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 
@@ -71,7 +65,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        //dd($id);
+        $order=Order::findOrFail($id);
+        $user=$order->user()->get();
+        $pictures=$order->pictures()->orderBy('index')->get();
+        //dd($user[0]->name);
+        dd($pictures[0]->index);
     }
 
     /**
