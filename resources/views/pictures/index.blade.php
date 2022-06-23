@@ -45,11 +45,11 @@
                         </td>
                         <td>
                             <form method="POST" class="fm-inline"
-                                  action="{{ route('down') }}">
+                                  action="{{ route('down', ['picture' => $picture->id]) }}">
                                 @csrf
 
 
-                                <input type="submit" value="W dół" class="btn btn-warning"/>
+                                <input type="submit" value="Down" class="btn btn-warning"/>
                             </form>
                         </td>
                         <td>{{ $picture->index }}</td>

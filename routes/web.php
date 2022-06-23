@@ -23,7 +23,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 //Route::resource('files', FileController::class);
     Route::resource('pictures', PictureControllers::class);
     Route::post('/up/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'up'])->name('up');
-    Route::post('/down', [App\Http\Controllers\PictureActionControllers::class, 'down'])->name('down');
+    Route::post('/down/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'down'])->name('down');
 });
 
 

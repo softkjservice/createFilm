@@ -5,25 +5,25 @@ namespace App\Classis;
 use App\Models\Order;
 use App\Models\Picture;
 
-class PictureIndexUp
+class PictureIndexDown
 {
     private $orderNumber;
     public function __construct(int $orderNumber){
         $this->orderNumber=$orderNumber;
     }
 
-    public function indexUp(int $id){
+    public function indexDown(int $id){
         $pictures=Order::findOrFail($this->orderNumber)->pictures()->orderBy('index')->get();
-        for ($i=1; $i<=count($pictures)-1; $i++){
+        for ($i=0; $i<=count($pictures)-2; $i++){
                 if ($pictures[$i]->id==$id){
                     $indexCurrent=$pictures[$i]->index;
-                    $indexUp=$pictures[$i-1]->index;
+                    $indexDown=$pictures[$i+1]->index;
                     $idCurrent=$pictures[$i]->id;
-                    $idUp=$pictures[$i-1]->id;
+                    $idDown=$pictures[$i+1]->id;
                     $picture=Picture::find($idCurrent);
-                    $picture->index=$indexUp;
+                    $picture->index=$indexDown;
                     $picture->save();
-                    $picture=Picture::find($idUp);
+                    $picture=Picture::find($idDown);
                     $picture->index=$indexCurrent;
                     $picture->save();
                 }
