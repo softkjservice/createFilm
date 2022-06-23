@@ -64,6 +64,9 @@
             <a class="float-right" href="{{ route('pictures.create') }}">
                 <button type="button" class="btn btn-primary"><i class="fas fa-plus">Dodaj pliki</i></button>
             </a>
+            <a class="float-right" href="{{ route('orders.show', [$orderId]) }}">
+                <button type="button" class="btn btn-primary"><i class="fas fa-plus">Zakończ</i></button>
+            </a>
         </div>
 
 

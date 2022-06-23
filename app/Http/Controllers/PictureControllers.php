@@ -20,11 +20,13 @@ class PictureControllers extends Controller
      */
     public function index() : view
     {
+        //dd(Auth::user());
         $orderId=Auth::user()->latestOrder->id;
         $order=Order::findOrFail($orderId);
         $pictures=$order->pictures()->orderBy('index')->get();
         return view("pictures.index", [
             'pictures' => $pictures,
+            'orderId' => $orderId,
             'user' => 'K. Jaworski'
         ]);
     }
