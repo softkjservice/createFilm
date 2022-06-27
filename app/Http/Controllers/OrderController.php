@@ -65,9 +65,8 @@ class OrderController extends Controller
      */
     public function show($id) : view
     {
-        $user=Auth::user();
-        $orderId=$user->latestOrder->id;
-        $order=Order::findOrFail($orderId);
+        $order=Order::findOrFail($id);
+        $user=$order->user;
         $pictures=$order->pictures()->orderBy('index')->get();
         return view("pictures.show", [
             'pictures' => $pictures,
@@ -80,11 +79,15 @@ class OrderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function edit($id)
+    public function edit($id) : view
     {
-        //
+        $order=Order::findOrFail($id);
+
+        return view("orders.edit", [
+            'order' => $order
+        ]);
     }
 
     /**
