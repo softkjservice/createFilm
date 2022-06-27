@@ -61,16 +61,19 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function show($id)
+    public function show($id) : view
     {
-        //dd($id);
-        $order=Order::findOrFail($id);
-        $user=$order->user()->get();
+        $user=Auth::user();
+        $orderId=$user->latestOrder->id;
+        $order=Order::findOrFail($orderId);
         $pictures=$order->pictures()->orderBy('index')->get();
-        //dd($user[0]->name);
-        dd($pictures[0]->index);
+        return view("pictures.show", [
+            'pictures' => $pictures,
+            'order' => $order,
+            'user' => $user
+        ]);
     }
 
     /**
