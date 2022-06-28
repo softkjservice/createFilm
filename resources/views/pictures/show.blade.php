@@ -153,8 +153,8 @@
 
                         <div>
                             <span class="text-secondary-d1 text-105">Dziękujemy za skorzystanie z naszej platformy </span>
-                            <a href="#" class="btn btn-success btn-bold px-4 float-right mt-3 mt-lg-0">Zatwierdź zamówienie</a>
-                            <a href="{{ url('/orders/' . $order->id . '/edit')}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">Powróć do edycji</a>
+                            <a href="{{ route('orders.index')}}" class="btn btn-success btn-bold px-4 float-right mt-3 mt-lg-0">Zatwierdź zamówienie</a>
+                            <a href="{{ url('/orders/'.$order->id.'/edit')}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">Powróć do edycji</a>
                         </div>
                     </div>
                 </div>

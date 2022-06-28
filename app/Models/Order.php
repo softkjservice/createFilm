@@ -37,4 +37,12 @@ class  Order extends Model
         return $this->hasMany(Picture::class);
     }
 
+    protected $attributes = [
+        'editable' => true,
+        'confirmed' => false,
+        'paid' => false,
+        'finished' => false,
+        'expired' => false
+    ];
+
 }

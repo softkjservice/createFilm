@@ -2,12 +2,16 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-left">
             <div class="col-6">
-                <a class="float-right" href="{{ route('orders.create') }}">
+                <a  href="{{ route('orders.index') }}">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-plus">Twoje zamówienia</i></button>
+                </a>
+                <a  href="{{ route('orders.create') }}">
                     <button type="button" class="btn btn-primary"><i class="fas fa-plus">Kreator filmu</i></button>
                 </a>
             </div>
+
 
         </div>
         strona startowa

@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +23,15 @@ class OrderController extends Controller
      */
     public function index(): view
     {
+        $user = Auth::user();
+        $orders=$user->orders()->get();
+        //$orders=Order::All();
+        //$orders=Order::All()->where("user_id","$user->id")->get();
+        //$orders = DB::table('orders')->where('user_id', '$user->id')->get();
+        //dd($orders[0]->title);
         return view("orders.index", [
-            'user' => 'K. Jaworski'
+            'user' => $user,
+            'orders' => $orders
         ]);
     }
 
@@ -48,12 +56,8 @@ class OrderController extends Controller
     public function store(UpsertProductRequest $request): RedirectResponse
     {
         $order=new Order($request->validated());
-        //dd($request);
-        //dd($order);
         $order->user_id=Auth::id();
-        //dd($order);
         $order->save();
-
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 
@@ -93,13 +97,16 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  UpsertProductRequest  $request
+     * @param  Order $order
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpsertProductRequest $request, Order $order): RedirectResponse
     {
-        //
+        $order->fill($request->validated());
+        $order->confirmed=true;
+        $order->save();
+        return redirect()->route('orders.index');
     }
 
     /**

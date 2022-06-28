@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row justify-content-center">
 
-    <form method="POST" action="{{ route('orders.store') }}" enctype="multipart/form-data" >
+    <form method="POST" action="{{ route('orders.update',$order) }}" enctype="multipart/form-data" >
+        {{ method_field('PUT') }}
         @csrf
         <div class="form-group">
             <label for="title">Tytuł filmu:</label>
@@ -131,7 +132,7 @@
             </div>
         @endif-->
 
-        <button type="submit" class="btn btn-success" name="dodaj">Submit</button>
+        <button type="submit" class="btn btn-success" name="dodaj">Enter</button>
     </form>
         </div>
     </div>
