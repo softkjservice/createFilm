@@ -59,6 +59,7 @@ class PictureControllers extends Controller
 
         $indexAdd=new PictureIndexAdd($picture->order_id);
         $picture->index=$indexAdd->indexAdd();
+        //$picture->oryginal_name=(string)$picture->index."_".$request->file('image')->getClientOriginalName();
         $picture->oryginal_name=$request->file('image')->getClientOriginalName();
         $picture->image_size=$request->file('image')->getSize();
         $picture->save();

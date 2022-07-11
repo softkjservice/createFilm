@@ -25,6 +25,11 @@ return [
             ],
         ],
     ],
+    'orderIndexTable'=>[
+        'title'=>'Tytuł',
+        'subtitle'=>'Subtytuł',
+        'end'=>'Zakończenie'
+    ],
     'file' => [
         'add_title' => 'Dodawanie produktu',
         'edit_title' => 'Edycja produktu: :name',

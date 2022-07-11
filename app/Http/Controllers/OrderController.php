@@ -72,7 +72,7 @@ class OrderController extends Controller
         $order=Order::findOrFail($id);
         $user=$order->user;
         $pictures=$order->pictures()->orderBy('index')->get();
-        return view("pictures.show", [
+        return view("orders.show", [
             'pictures' => $pictures,
             'order' => $order,
             'user' => $user
@@ -106,7 +106,8 @@ class OrderController extends Controller
         $order->fill($request->validated());
         $order->confirmed=true;
         $order->save();
-        return redirect()->route('orders.index');
+        //return redirect()->route('orders.index');
+        return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 
     /**

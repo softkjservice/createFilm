@@ -13,11 +13,10 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">{{ __('text.file.fields.oryginal_name') }}</th>
-                    <th scope="col">{{ __('text.file.fields.image_size') }}</th>
-                    <th scope="col">{{ __('text.file.fields.index') }}</th>
-                    <th scope="col">{{ __('text.file.fields.index') }}</th>
-                </tr>
+                    <th scope="col">{{ __('text.orderIndexTable.title') }}</th>
+                    <th scope="col">{{ __('text.orderIndexTable.subtitle') }}</th>
+                    <th scope="col">{{ __('text.orderIndexTable.end') }}</th>
+
                 </thead>
                 <tbody>
                 @foreach($orders as $order)
