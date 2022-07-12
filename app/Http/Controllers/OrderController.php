@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -119,5 +120,22 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return RedirectResponse
+     */
+    public function downloadPDF($id)
+    {
+        $order=Order::findOrFail($id);
+        $user=$order->user;
+        $pictures=$order->pictures()->orderBy('index')->get();
+        $pdf = PDF::loadView('orders.pdf', compact('order','user','pictures'));
+        return $pdf->download('order.pdf');
+        /*return redirect(route('orders.index'))->with('status', 'Udało się');*/
+        //dd($id);
     }
 }

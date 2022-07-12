@@ -31,6 +31,8 @@
                                 <input type="submit" value="Pokaż" class="btn btn-warning"/>
                             </form>
                         </td>
+                        <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">PDF</a></td>
+
                     </tr>
                 @endforeach
                 </tbody>
