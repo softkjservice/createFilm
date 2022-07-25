@@ -28,17 +28,29 @@
                             <form method="POST" class="fm-inline" action="{{ route('orders.show', ['order' => $order->id]) }}">
                                 {{ method_field('GET') }}
                                 @csrf
-                                <input type="submit" value="Pokaż" class="btn btn-warning"/>
+                                <input type="submit" value="Edytuj" class="btn btn-warning"/>
                             </form>
                         </td>
                         <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">PDF</a></td>
+                        @can('isAdmin')
+                            <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-dark btn-bold px-4 float-right mt-3 mt-lg-0">Pobierz pliki</a></td>
+                        @endcan
+<!--                        <td><a href="{{ url('/orders.destroy/'.$order->id)}}" class="btn btn-danger btn-bold px-4 float-right mt-3 mt-lg-0">Usuń</a></td>-->
+                        <td>
+                            <form method="POST" class="fm-inline"
+                                  action="{{ route('orders.destroy', ['order' => $order->id]) }}">
+                                @csrf
+                                @method('DELETE')
 
+                                <input type="submit" value="Delete!" class="btn btn-danger"/>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-
+        {{ $orders->links("pagination::bootstrap-4") }}
         <div class="col-6">
             <a class="float-right" href="{{ route('orders.create') }}">
                 <button type="button" class="btn btn-primary"><i class="fas fa-plus">Utwórz zamówienie</i></button>

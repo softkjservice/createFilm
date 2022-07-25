@@ -24,7 +24,13 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('pictures', PictureControllers::class);
     Route::post('/up/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'up'])->name('up');
     Route::post('/down/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'down'])->name('down');
-    Route::get('/orderpdf/{order}', [App\Http\Controllers\OrderController::class, 'downloadPDF'])->name('downloadPDF ');
+    Route::get('/orderpdf/{order}', [App\Http\Controllers\OrderController::class, 'downloadPDF'])->name('downloadPDF');
+
+    Route::middleware(['can:isAdmin'])->group(function() {
+        Route::get('/admin', [App\Http\Controllers\AdminControllers::class, 'index'])->name('adminIndex');
+        Route::get('/adminOrderList', [App\Http\Controllers\AdminControllers::class, 'list'])->name('adminOrderList');
+        Route::get('/adminOrderListToDo', [App\Http\Controllers\AdminControllers::class, 'listToDo'])->name('adminOrderListToDo');
+    });
 });
 
 

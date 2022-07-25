@@ -11,9 +11,11 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class OrderController extends Controller
 {
@@ -25,7 +27,8 @@ class OrderController extends Controller
     public function index(): view
     {
         $user = Auth::user();
-        $orders=$user->orders()->get();
+        $orders=$user->orders()->where('editable','1')->paginate(10);
+        //$orders=$user->orders()->get();
         //$orders=Order::All();
         //$orders=Order::All()->where("user_id","$user->id")->get();
         //$orders = DB::table('orders')->where('user_id', '$user->id')->get();
@@ -115,11 +118,15 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse|StreamedResponse
      */
-    public function destroy($id)
+    public function destroy($id): RedirectResponse|StreamedResponse
     {
-        //
+       // dd($id);
+        $order=Order::findOrFail($id);
+        $order->pictures()->delete();
+        $order->delete();
+        return Redirect::back();
     }
 
     /**
