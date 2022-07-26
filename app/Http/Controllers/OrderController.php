@@ -27,7 +27,7 @@ class OrderController extends Controller
     public function index(): view
     {
         $user = Auth::user();
-        $orders=$user->orders()->where('editable','1')->paginate(10);
+        $orders=$user->orders()->where('editable','1')->where('confirmed','1')->paginate(10);
         //$orders=$user->orders()->get();
         //$orders=Order::All();
         //$orders=Order::All()->where("user_id","$user->id")->get();
@@ -61,6 +61,7 @@ class OrderController extends Controller
     {
         $order=new Order($request->validated());
         $order->user_id=Auth::id();
+        //$order->confirmed=true;
         $order->save();
         return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
@@ -107,8 +108,9 @@ class OrderController extends Controller
      */
     public function update(UpsertProductRequest $request, Order $order): RedirectResponse
     {
+        //dd($order);
         $order->fill($request->validated());
-        $order->confirmed=true;
+        //$order->confirmed=true;
         $order->save();
         //return redirect()->route('orders.index');
         return redirect(route('pictures.index'))->with('status', 'Udało się');
@@ -144,5 +146,20 @@ class OrderController extends Controller
         return $pdf->download('order.pdf');
         /*return redirect(route('orders.index'))->with('status', 'Udało się');*/
         //dd($id);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  UpsertProductRequest  $request
+     * @return RedirectResponse
+     */
+    public function confirm($id): RedirectResponse
+    {
+        //dd($id);
+        $order=Order::findOrFail($id);
+        $order->confirmed=true;
+        $order->save();
+        return redirect(route('pictures.index'))->with('status', 'Udało się');
     }
 }

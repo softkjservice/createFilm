@@ -25,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/up/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'up'])->name('up');
     Route::post('/down/{picture}', [App\Http\Controllers\PictureActionControllers::class, 'down'])->name('down');
     Route::get('/orderpdf/{order}', [App\Http\Controllers\OrderController::class, 'downloadPDF'])->name('downloadPDF');
+    Route::get('/orderconfirm/{order}', [App\Http\Controllers\OrderController::class, 'confirm'])->name('orderconfirm');
 
     Route::middleware(['can:isAdmin'])->group(function() {
         Route::get('/admin', [App\Http\Controllers\AdminControllers::class, 'index'])->name('adminIndex');
