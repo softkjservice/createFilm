@@ -13,15 +13,18 @@
 
         </div>
 
-        <div class="col-6">
+        <div class="col-12">
             <a class="float-right" href="{{ route('adminOrderListToDo') }}">
                 <button type="button" class="btn btn-primary"><i class="fas fa-plus">Zamówienia do realizacji</i></button>
             </a>
             <a class="float-right" href="{{ route('adminOrderList') }}">
                 <button type="button" class="btn btn-primary"><i class="fas fa-plus">Wszystkie zamówienia</i></button>
             </a>
-            <a class="float-right" href="{{ route('orders.create') }}">
+<!--            <a class="float-right" href="{{ route('orders.create') }}">
                 <button type="button" class="btn btn-primary"><i class="fas fa-plus">Zamówienia użytkownika</i></button>
+            </a>-->
+            <a class="float-right" href="{{ route('adminOrderListToDelete') }}">
+                <button type="button" class="btn btn-primary"><i class="fas fa-plus">Zamówienia nie zatwierdzone</i></button>
             </a>
         </div>
     </div>

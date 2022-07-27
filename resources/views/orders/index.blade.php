@@ -34,14 +34,16 @@
                         <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">PDF</a></td>
                         @can('isAdmin')
                             <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-dark btn-bold px-4 float-right mt-3 mt-lg-0">Pobierz pliki</a></td>
+{{--                            <td>{{$order->confirmed}}</td>--}}
+                            <td>{{$order->user_id}}</td>
                         @endcan
 <!--                        <td><a href="{{ url('/orders.destroy/'.$order->id)}}" class="btn btn-danger btn-bold px-4 float-right mt-3 mt-lg-0">Usuń</a></td>-->
+
                         <td>
                             <form method="POST" class="fm-inline"
                                   action="{{ route('orders.destroy', ['order' => $order->id]) }}">
                                 @csrf
                                 @method('DELETE')
-
                                 <input type="submit" value="Delete!" class="btn btn-danger"/>
                             </form>
                         </td>

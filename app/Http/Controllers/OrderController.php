@@ -12,10 +12,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use App\Classis\Utilities;
 
 class OrderController extends Controller
 {
@@ -28,11 +30,6 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $orders=$user->orders()->where('editable','1')->where('confirmed','1')->paginate(10);
-        //$orders=$user->orders()->get();
-        //$orders=Order::All();
-        //$orders=Order::All()->where("user_id","$user->id")->get();
-        //$orders = DB::table('orders')->where('user_id', '$user->id')->get();
-        //dd($orders[0]->title);
         return view("orders.index", [
             'user' => $user,
             'orders' => $orders
@@ -125,8 +122,10 @@ class OrderController extends Controller
     public function destroy($id): RedirectResponse|StreamedResponse
     {
        // dd($id);
+        Utilities::orderPicturesDelete($id);
         $order=Order::findOrFail($id);
         $order->pictures()->delete();
+        //Storage::deleteDirectory('xtestx');
         $order->delete();
         return Redirect::back();
     }
@@ -160,6 +159,6 @@ class OrderController extends Controller
         $order=Order::findOrFail($id);
         $order->confirmed=true;
         $order->save();
-        return redirect(route('pictures.index'))->with('status', 'Udało się');
+        return redirect(route('orders.index'))->with('status', 'Udało się');
     }
 }

@@ -44,7 +44,20 @@ class AdminControllers extends Controller
     public function listToDo(): View
     {
         return view("orders.index", [
-            'orders' => Order::paginate(5),
+            'orders' => Order::where('confirmed','1')->paginate(10),
+            'user' =>  Auth::user()
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return View
+     */
+    public function listToDelete(): View
+    {
+        return view("orders.index", [
+            'orders' => Order::where('confirmed','0')->paginate(10),
             'user' =>  Auth::user()
         ]);
     }

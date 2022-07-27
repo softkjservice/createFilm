@@ -31,6 +31,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/admin', [App\Http\Controllers\AdminControllers::class, 'index'])->name('adminIndex');
         Route::get('/adminOrderList', [App\Http\Controllers\AdminControllers::class, 'list'])->name('adminOrderList');
         Route::get('/adminOrderListToDo', [App\Http\Controllers\AdminControllers::class, 'listToDo'])->name('adminOrderListToDo');
+        Route::get('/adminOrderListToDelete', [App\Http\Controllers\AdminControllers::class, 'listToDelete'])->name('adminOrderListToDelete');
     });
 });
 
