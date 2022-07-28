@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         Route::get('/adminOrderList', [App\Http\Controllers\AdminControllers::class, 'list'])->name('adminOrderList');
         Route::get('/adminOrderListToDo', [App\Http\Controllers\AdminControllers::class, 'listToDo'])->name('adminOrderListToDo');
         Route::get('/adminOrderListToDelete', [App\Http\Controllers\AdminControllers::class, 'listToDelete'])->name('adminOrderListToDelete');
+        Route::get('/adminPicturesDownload/{order}', [App\Http\Controllers\AdminControllers::class, 'download'])->name('adminPicturesDownload');
     });
 });
 

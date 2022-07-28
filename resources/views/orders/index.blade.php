@@ -33,7 +33,7 @@
                         </td>
                         <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-secondary btn-bold px-4 float-right mt-3 mt-lg-0">PDF</a></td>
                         @can('isAdmin')
-                            <td><a href="{{ url('/orderpdf/'.$order->id)}}" class="btn btn-dark btn-bold px-4 float-right mt-3 mt-lg-0">Pobierz pliki</a></td>
+                            <td><a href="{{ url('/adminPicturesDownload/'.$order->id)}}" class="btn btn-dark btn-bold px-4 float-right mt-3 mt-lg-0">Pobierz pliki</a></td>
 {{--                            <td>{{$order->confirmed}}</td>--}}
                             <td>{{$order->user_id}}</td>
                         @endcan
