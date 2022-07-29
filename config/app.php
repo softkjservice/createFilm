@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\DomPDF\ServiceProvider::class,
+        Madnest\Madzipper\MadzipperServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -192,6 +193,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'PDF' => Barryvdh\DomPDF::class,
+        'Madzipper' => Madnest\Madzipper\Madzipper::class,
     ])->toArray(),
 
 ];

@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Classis\Utilities;
 use App\Models\Order;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Madnest\Madzipper\Facades\Madzipper;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 
 class AdminControllers extends Controller
@@ -84,6 +85,11 @@ class AdminControllers extends Controller
         //response()->download('storage\kj01.gif');
         //return Storage::download('kj01.gif');
         //return Redirect::back();
-        return Utilities::filesend('kj01.gif');
+        $files = glob('storage\82\*');
+        //dd($files);
+        Madzipper::make('storage\test.zip')->add($files)->close();
+        return Utilities::filesend('test.zip');
+        //return Storage::download('test.zip');
+        //return  response()->download('storage\test.zip');
     }
 }
