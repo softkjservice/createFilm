@@ -79,11 +79,11 @@ class AdminControllers extends Controller
     {
         //dd($id);
         //Utilities::orderPicturesDownload($id);
-        //Utilities::filesend('storage\kj01.gif');
+       // Utilities::filesend('kj01.gif');
         //return Redirect::back();
         //response()->download('storage\kj01.gif');
-        return Storage::download('kj01.gif');
+        //return Storage::download('kj01.gif');
         //return Redirect::back();
-
+        return Utilities::filesend('kj01.gif');
     }
 }

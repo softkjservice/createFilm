@@ -7,6 +7,7 @@ use App\Models\Picture;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class Utilities
 {
@@ -32,9 +33,9 @@ class Utilities
      * Remove the specified resource from storage.
      *
      * @param  int $order_id
-     * @return RedirectResponse|BinaryFileResponse
+     * @return RedirectResponse|StreamedResponse
      */
-    public static function orderPicturesDownload(int $order_id): RedirectResponse|BinaryFileResponse
+    public static function orderPicturesDownload(int $order_id): RedirectResponse|StreamedResponse
     {
         $order=Order::findOrFail($order_id);
         $pictures=$order->pictures()->get();
@@ -72,11 +73,12 @@ class Utilities
      * Remove the specified resource from storage.
      *
      * @param  string $path
-     * @return RedirectResponse|BinaryFileResponse
+     * @return RedirectResponse|StreamedResponse
      */
-    public static function filesend(string $path): RedirectResponse|BinaryFileResponse
+    public static function filesend(string $path): RedirectResponse|StreamedResponse
     {
-        return response()->download($path);
+        //return response()->download($path);
+        return Storage::download($path);
     }
 
 }
