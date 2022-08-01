@@ -9,6 +9,7 @@ use App\Models\Picture;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PictureControllers extends Controller
@@ -110,6 +111,11 @@ class PictureControllers extends Controller
     {
        // dd($id);
         $picture = Picture::findOrFail($id);
+        //dd($picture->image_path);
+        Storage::delete($picture->image_path);
+        if (file_exists($picture->image_path)){
+            Storage::deleteDirectory($picture->image_path);
+        }
 
 
         //$this->authorize($post);

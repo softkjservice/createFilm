@@ -28,7 +28,9 @@ class Utilities
         return;
     }
 
+    public static function pictureDelete(string $path){
 
+    }
 
 
 }
