@@ -78,18 +78,15 @@ class AdminControllers extends Controller
      */
     public function download($id): RedirectResponse|StreamedResponse
     {
-        //dd($id);
-        //Utilities::orderPicturesDownload($id);
-       // Utilities::filesend('kj01.gif');
-        //return Redirect::back();
-        //response()->download('storage\kj01.gif');
-        //return Storage::download('kj01.gif');
-        //return Redirect::back();
-        $files = glob('storage\82\*');
-        //dd($files);
-        Madzipper::make('storage\test.zip')->add($files)->close();
-        return Utilities::filesend('test.zip');
-        //return Storage::download('test.zip');
-        //return  response()->download('storage\test.zip');
+        $files = glob("storage\\$id\\*");
+        //dd(count($files));
+        if (count($files)>0){
+            Madzipper::make("storage\\$id".".zip")->add($files)->close();
+            //return Utilities::filesend("$id.zip");
+            return Storage::download("$id.zip");
+        }else{
+            return Redirect::back();
+        }
+
     }
 }
