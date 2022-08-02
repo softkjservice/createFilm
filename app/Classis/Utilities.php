@@ -13,24 +13,11 @@ class Utilities
 {
     public static function orderPicturesDelete(int $order_id){
         $order=Order::findOrFail($order_id);
-        $pictures=$order->pictures()->get();
-      /*  foreach ($pictures as $picture){
-            if(Storage::exists($picture->image_path)){
-                Storage::delete($picture->image_path);
-            }else{
-                //dd('File does not exist.');
-                dd($picture->image_path);
-            }
-        }*/
-        Storage::deleteDirectory($order_id);
-        //dd($pictures[1]->index);
-
-        return;
+        //$pictures=$order->pictures()->get();
+        $file="$order_id.zip";
+        if (Storage::exists($file)){
+            Storage::delete($file);
+        }
+        return Storage::deleteDirectory($order_id);
     }
-
-    public static function pictureDelete(string $path){
-
-    }
-
-
 }
