@@ -6,11 +6,13 @@ namespace App\Http\Controllers;
 
 //use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpsertProductRequest;
+use App\Mail\OrderConfirmMail;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -159,6 +161,27 @@ class OrderController extends Controller
         $order=Order::findOrFail($id);
         $order->confirmed=true;
         $order->save();
+        //Utilities::basic_email();
+        //Utilities::sendmail();
+        Mail::to($order->user)->send(
+            new OrderConfirmMail($order)
+        );
+        Mail::to('kj@softcenter.eu')->send(
+            new OrderConfirmMail($order)
+        );
         return redirect(route('orders.index'))->with('status', 'Udało się');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return RedirectResponse
+     */
+    public function sendemail($id): RedirectResponse
+    {
+        Utilities::basic_email();
+        return Redirect::back();
+
     }
 }
