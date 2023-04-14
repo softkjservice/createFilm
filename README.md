@@ -2,6 +2,8 @@
 <p><h4>Technologia Larevel, PHP, JavaScript</h4></p>
 <p><b>Podstawowe funkcjonalności</b></p>
 
+<p><b>Podstawowe funkcjonalności</b></p>
+
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
 - Logowanie z rozróżnieniem uprawnień<br>
 <p><b>Funkcjonalności dostępne dla użytkownika:</b></p>
