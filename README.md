@@ -2,9 +2,10 @@
 <p><h4>Technologia Larevel, PHP, JavaScript</h4></p>
 <p><h3>Cel projektu</h3></p>
 Opracowanie w pełni użytkowej aplikacji do obsługi zamówień. Obiektem zamówienia jest album zdjęciowy, którego projekt tworzy użytkownik. Kreator albumu pozwala wprowadzać wymagane teksty oraz zdjęcia z możliwością natychmiastowego podglądu wybranych efektów animacyjnych. Projekt utworzony w celach szkoleniowych. Front-end powstał w oparciu o pliki blade w wykorzystaniem css oraz js. Back-end wykorzystuje PHP 8 oraz MySQL. Wersjonowanie projektu realizowane w oparciu o oprogramowanie GIT. Projekt zainstalowany został na serwerze współdzielonym.
-<p><b>Podstawowe funkcjonalności</b></p>
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
+<p><b>Podstawowe funkcjonalności</b></p>
+
 
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
 - Logowanie z rozróżnieniem uprawnień<br>
