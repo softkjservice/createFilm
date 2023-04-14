@@ -4,7 +4,7 @@ Technologia: Larevel, PHP, JavaScript
 ###Podstawowe funkcjonalności
 
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
-- Logowanie z rozróżnieniem uprawnień
+- Logowanie z rozróżnieniem uprawnień<br>
 ####Funkcjonalności dostępne dla użytkownika:
 - Kreator nowego zamówienia
   - Edycja tytułu albumu oraz subtytułu i tekstu końcowego
