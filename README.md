@@ -23,7 +23,7 @@
 - Pobieranie plików do albumu
   - Format ZIP
   - W nazwie pliku automatycznie generujący się numer określający kolejność zdjęcia w albumie
-<p><b>Uwagi<b></P>
+<p><b>Uwagi</b></p>
     
 - Walidacja z wykorzystaniem FormRequest
 - Role w systemie predefiniowane [enum]
