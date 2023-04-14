@@ -1,7 +1,6 @@
 <p><h2>O projekcie</h2></p>
 <p><h4>Technologia Larevel, PHP, JavaScript</h4></p>
-<p><b>Podstawowe funkcjonalności</b></p>
-
+<p><h3>Cel projektu</h3></p>
 <p><b>Podstawowe funkcjonalności</b></p>
 
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
