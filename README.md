@@ -1,4 +1,4 @@
-## O projekcie
+<h2>O projekcie</<h2>
 
 Technologia: Larevel, PHP, JavaScript
 ###Podstawowe funkcjonalności
