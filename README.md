@@ -4,7 +4,7 @@
 Opracowanie w pełni użytkowej aplikacji do obsługi zamówień. Obiektem zamówienia jest album zdjęciowy, którego projekt tworzy użytkownik. Kreator albumu pozwala wprowadzać wymagane teksty oraz zdjęcia z możliwością natychmiastowego podglądu wybranych efektów animacyjnych. Projekt utworzony w celach szkoleniowych. Front-end powstał w oparciu o pliki blade w wykorzystaniem css oraz js. Back-end wykorzystuje PHP 8 oraz MySQL. Wersjonowanie projektu realizowane w oparciu o oprogramowanie GIT. Projekt zainstalowany został na serwerze współdzielonym.
 
 - [Zobacz wersję demo]([https://www.fado.type.pl/]).
-- - [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Simple, fast routing engine](https://www.fado.type.pl/).
 <p><b>Podstawowe funkcjonalności</b></p>
 
 
