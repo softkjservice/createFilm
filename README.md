@@ -17,7 +17,8 @@
   - Zatwierdzanie zamówienia lub powrót do edycji
 - Po zatwierdzeniu automatyczne przesłanie zamówienia na e-mail klienta oraz administratora
 - Zarządzanie zamówieniami, które nie zostały jeszcze przesunięte do realizacji
-###Funkcjonalności dostępne dla administratora
+<p><b>Funkcjonalności dostępne dla administratora</b></P>
+
 - Dostęp do wszystkich zamówień z możliwością wydzielenia zamówień do realizacji
 - Pobieranie plików do albumu
   - Format ZIP
