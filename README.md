@@ -5,11 +5,11 @@
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
 - Logowanie z rozróżnieniem uprawnień<br>
 - <p><b>Funkcjonalności dostępne dla użytkownika:</b></p>
-- Kreator nowego zamówienia
-  - Edycja tytułu albumu oraz subtytułu i tekstu końcowego
-  - Wybór animacji dla tytułu, przenikania obrazów oraz tekstu końcowego z natychmiastowym podglądem efektu
-      - Dodawanie zdjęć z opisem
-      - Zarządzanie zdjęciami: 
+  - Kreator nowego zamówienia
+    - Edycja tytułu albumu oraz subtytułu i tekstu końcowego
+    - Wybór animacji dla tytułu, przenikania obrazów oraz tekstu końcowego z natychmiastowym podglądem efektu
+        - Dodawanie zdjęć z opisem
+        - Zarządzanie zdjęciami: 
         -  Ustalanie kolejności (przesuwanie góra/dół)
         - Usuwanie
   - Podsumowanie zamówienia z automatycznym wyliczeniem kwoty w zależności od objętości albumu
