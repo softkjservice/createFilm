@@ -1,7 +1,7 @@
-<h2>O projekcie</<h2>
+<h2>O projekcie<</h2>
 
-Technologia: Larevel, PHP, JavaScript
-###Podstawowe funkcjonalności
+    <h4>Technologia: Larevel, PHP, JavaScript</h4>
+    <p><b>Podstawowe funkcjonalności</b></p>
 
 - Rejestracja użutkowników z potwierdzeniem e-mailowym
 - Logowanie z rozróżnieniem uprawnień<br>
